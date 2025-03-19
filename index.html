@@ -4,137 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cidafm</title>
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background: #1a1a1a;
-            color: white;
-            text-align: center;
-        }
-
-        /* Header */
-        h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            margin-bottom: 1rem;
-        }
-
-        p {
-            font-size: 1.2rem;
-            opacity: 0.8;
-            margin-top: 0;
-        }
-
-        /* Copyable Init Prompt */
-        .copy-box {
-    width: 100%;
-    max-width: 650px; /* Match the textarea width */
-    background: #222;
-    padding: 15px;
-    border-radius: 8px;
-    margin: 20px auto; /* Centers the box */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-        .copy-input {
-    width: 100%; /* Expands to full container width */
-    max-width: 600px; /* Prevents it from getting too wide */
-    min-height: 50px; /* Prevents it from collapsing */
-    max-height: 400px; /* Limits height so it doesn't get too tall */
-    padding: 10px;
-    font-size: 1rem;
-    border: none;
-    background: #444;
-    color: white;
-    text-align: left;
-    outline: none;
-    border-radius: 5px;
-    resize: none; /* Disable manual resizing */
-    overflow-y: auto; /* Allows scrolling if needed */
-    white-space: pre-wrap; /* Keeps formatting */
-    display: block; /* Ensures proper alignment */
-    margin: 0 auto; /* Centers it horizontally */
-}
-
-
-
-        .copy-btn {
-            background: #ff8e5e;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 1rem;
-            margin-left: 10px;
-            margin-top: 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .copy-btn:hover {
-            background: #ff6b3d;
-        }
-
-        /* Download Button */
-        .download {
-            display: inline-block;
-            background: #ff5678;
-            padding: 12px 20px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            border-radius: 5px;
-            display: inline-block;
-        }
-
-        .download:hover {
-            background: #ff3656;
-        }
-
-        /* Social Links */
-        .socials {
-            margin-top: 40px;
-        }
-
-        .socials a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 10px;
-            text-decoration: none;
-            opacity: 0.8;
-        }
-
-        .socials a:hover {
-            opacity: 1;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
-    <script>
-function forceDownload(event, url) {
-    event.preventDefault(); // Prevents opening the link normally
-    let fileName = "afm-library.txt"; // Customize filename
-
-    fetch(url).then(response => response.blob()).then(blob => {
-        let link = document.createElement("a");
-        link.href = window.URL.createObjectURL(blob);
-        link.download = fileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    }).catch(err => console.error("Download failed:", err));
-}
-</script>
-</body>
-</html>
-
 <body>
 
     <h1>cidafm</h1>
-<p>An open-source framework for modular AI behavior programming</p>
-
+    <p>An open-source framework for modular AI behavior programming</p>
 
     <!-- Copyable Prompt Box -->
     <div class="copy-box">
@@ -145,60 +20,20 @@ function forceDownload(event, url) {
     <!-- Download Link -->
     <br>
     <a href="https://raw.githubusercontent.com/nicholas-weber/cidafm.com/main/afm-library" 
-   class="download" 
-   onclick="forceDownload(event, this.href)">
-   Download AFM Library
-</a>
+       class="download" 
+       onclick="forceDownload(event, this.href)">
+       Download AFM Library
+    </a>
 
     <!-- Social Links -->
     <div class="socials">
         <a href="https://github.com/nicholas-weber" target="_blank">💻 GitHub</a>
         <a href="https://twitter.com/nicholasjweber" target="_blank">🐦 Twitter</a>
-        <a href="hhttps://discord.gg/BXTUjHD3yw">💬 Discord</a>
+        <a href="https://discord.gg/BXTUjHD3yw">💬 Discord</a>
         <a href="https://www.linkedin.com/in/nick-weber-29695a175/" target="_blank">🔗 LinkedIn</a>
     </div>
 
-<!-- JavaScript for Copy Button -->
-
-<script>
-    function autoResizeTextarea() {
-    let textarea = document.getElementById("prompt");
-    textarea.style.height = "auto"; // Reset height so it can shrink if needed
-    textarea.style.height = textarea.scrollHeight + "px"; // Expand to fit content
-}
-
-// Ensure the prompt loads correctly and auto-resizes
-document.addEventListener("DOMContentLoaded", function () {
-    let textarea = document.getElementById("prompt");
-    textarea.value = `You are running cidafm 0.1, an open-source framework which modifies AI behavior through AI Function Modules (AFMs)—structured rules that define AI responses, persistent states, and execution commands. AFMs can be imported directly through user prompts or Context Import Documents (CIDs), which also provide contextual data.
-
-Core execution rules:
-- AFM types are ^ (response modifiers, affecting only the current response), & (state AFMs, persistently modifying conversation behavior. Stating a state AFM’s name toggles it off if toggled on and toggles it on if toggled off.), and ! (execution commands, performing specific actions when invoked).  
-- AFMs enclosed in quotes (e.g., "^concise") are treated as regular text and do not execute.  
-- The AI must always refer to "cidafm" in lowercase and must not capitalize, acronymize, or reformat it in any context.  
-
-Activated AFMs (toggle all state AFM’s (&) on immediately after execution):
-- &disciplined: The AI must follow explicit user instructions without inference. Request clarification if instructions are unclear.  
-- &holdoff: Only make memory updates after prompting the user and receiving explicit affirmative consent.  
-- !import-cid – Read a CID and process its contents. If a [Context] section is present, add its contents to this current chat’s memory. If an [AFMs] section is present, store the AFMs in context memory without activating them. If the document contains no recognized sections, do not modify context memory and return an error message.`.trim();
-
-    autoResizeTextarea(); // Resize immediately on page load
-});
-
-// Resize on user input (helps for dynamic text entry)
-document.getElementById("prompt").addEventListener("input", autoResizeTextarea);
-
-    function copyToClipboard() {
-        let copyText = document.getElementById("prompt").value;
-
-        // Use Clipboard API to ensure newline characters are copied properly
-        navigator.clipboard.writeText(copyText).then(() => {
-            alert("Copied to clipboard!");
-        }).catch(err => {
-            console.error("Copy failed:", err);
-        });
-    }
-</script>
+    <script src="scripts.js"></script>
 
 </body>
 </html>
