@@ -112,6 +112,24 @@
         }
     </style>
 </head>
+    <script>
+function forceDownload(event, url) {
+    event.preventDefault(); // Prevents opening the link normally
+    let fileName = "afm-library.txt"; // Customize filename
+
+    fetch(url).then(response => response.blob()).then(blob => {
+        let link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }).catch(err => console.error("Download failed:", err));
+}
+</script>
+</body>
+</html>
+
 <body>
 
     <h1>cidafm</h1>
@@ -128,11 +146,9 @@
     <br>
     <a href="https://raw.githubusercontent.com/nicholas-weber/cidafm.com/main/afm-library" 
    class="download" 
-   target="_blank" 
-   download>
+   onclick="forceDownload(event, this.href)">
    Download AFM Library
 </a>
-
 
     <!-- Social Links -->
     <div class="socials">
