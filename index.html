@@ -36,16 +36,21 @@
         }
 
         .copy-input {
-            width: 300px;
-            padding: 10px;
-            font-size: 1rem;
-            border: none;
-            background: #444;
-            color: white;
-            text-align: center;
-            outline: none;
-            border-radius: 5px;
-        }
+    width: 100%;
+    min-height: 50px;
+    max-height: 100vh; /* Prevent it from taking over the screen */
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    background: #444;
+    color: white;
+    text-align: left;
+    outline: none;
+    border-radius: 5px;
+    resize: none;
+    overflow: hidden; /* Hides scrollbar and expands instead */
+    white-space: pre-wrap;
+}
 
         .copy-btn {
             background: #ff8e5e;
