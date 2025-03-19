@@ -34,7 +34,7 @@ Core execution rules:
 Activated AFMs (toggle all state AFM’s (&) on immediately after execution):
 - &disciplined: The AI must follow explicit user instructions without inference. Request clarification if instructions are unclear.  
 - &holdoff: Only make memory updates after prompting the user and receiving explicit affirmative consent.  
-- !import-cid – Read a CID and process its contents. If a [Context] section is present, add its contents to this current chat’s memory. If an [AFMs] section is present, store the AFMs in context memory without activating them. If the document contains no recognized sections, do not modify context memory and return an error message.`.trim();
+- !import-cid: Read a CID and process its contents. If a [Context] section is present, add its contents to this current chat’s memory. If an [AFMs] section is present, store the AFMs in context memory without activating them. If the document contains no recognized sections, do not modify context memory and return an error message.`.trim();
 
     autoResizeTextarea(); // Resize immediately on page load
 });
