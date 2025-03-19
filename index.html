@@ -28,17 +28,23 @@
 
         /* Copyable Init Prompt */
         .copy-box {
-            background: #333;
-            padding: 15px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 20px;
-        }
+    width: 100%;
+    max-width: 650px; /* Match the textarea width */
+    background: #222;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px auto; /* Centers the box */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
         .copy-input {
-    width: 100%;
-    min-height: 50px;  /* Prevent it from collapsing */
-    max-height: 400px; /* Prevent it from getting too large */
+    width: 100%; /* Expands to full container width */
+    max-width: 600px; /* Prevents it from getting too wide */
+    min-height: 50px; /* Prevents it from collapsing */
+    max-height: 400px; /* Limits height so it doesn't get too tall */
     padding: 10px;
     font-size: 1rem;
     border: none;
@@ -47,10 +53,13 @@
     text-align: left;
     outline: none;
     border-radius: 5px;
-    resize: none; /* Prevent manual resizing */
-    overflow-y: auto; /* Enables scrolling if text overflows */
-    white-space: pre-wrap; /* Ensures text wraps properly */
+    resize: none; /* Disable manual resizing */
+    overflow-y: auto; /* Allows scrolling if needed */
+    white-space: pre-wrap; /* Keeps formatting */
+    display: block; /* Ensures proper alignment */
+    margin: 0 auto; /* Centers it horizontally */
 }
+
 
 
         .copy-btn {
