@@ -4,8 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cidafm</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header */
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Copyable Init Prompt */
+        .copy-box {
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .copy-input {
+            width: 300px;
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            background: #444;
+            color: white;
+            text-align: center;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .copy-btn {
+            background: #ff8e5e;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .copy-btn:hover {
+            background: #ff6b3d;
+        }
+
+        /* Download Button */
+        .download {
+            display: inline-block;
+            background: #ff5678;
+            padding: 12px 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .download:hover {
+            background: #ff3656;
+        }
+
+        /* Social Links */
+        .socials {
+            margin-top: 40px;
+        }
+
+        .socials a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            text-decoration: none;
+            opacity: 0.8;
+        }
+
+        .socials a:hover {
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to cidafm!</h1>
-    <p>The site is under construction. Check back soon!</p>
-</body
+
+    <h1>cidafm: Modular AI Behavior Programming</h1>
+    <p>An open-source framework for structured AI interactions</p>
+
+    <!-- Copyable Prompt Box -->
+    <div class="copy-box">
+        <input type="text" id="prompt" class="copy-input" value="Activate cidafm by pasting this into your AI model">
+        <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+    </div>
+
+    <!-- Download Link -->
+    <br>
+    <a href="https://github.com/nicholas-weber/cidafm-site" class="download" target="_blank">Download AFM Library</a>
+
+    <!-- Social Links -->
+    <div class="socials">
+        <a href="https://github.com/nicholas-weber" target="_blank">💻 GitHub</a>
+        <a href="https://twitter.com/nicholasjweber" target="_blank">🐦 Twitter</a>
+        <a href="https://discord.com" target="_blank">💬 Discord</a>
+        <a href="https://linkedin.com/in/nicholasjweber" target="_blank">🔗 LinkedIn</a>
+    </div>
+
+    <!-- JavaScript for Copy Button -->
+    <script>
+        function copyToClipboard() {
+            let copyText = document.getElementById("prompt");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("Copied to clipboard!");
+        }
+    </script>
+
+</body>
+</html>
