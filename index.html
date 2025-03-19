@@ -37,8 +37,8 @@
 
         .copy-input {
     width: 100%;
-    min-height: 50px;
-    max-height: 100vh; /* Prevent it from taking over the screen */
+    min-height: 50px;  /* Prevent it from collapsing */
+    max-height: 400px; /* Prevent it from getting too large */
     padding: 10px;
     font-size: 1rem;
     border: none;
@@ -47,10 +47,11 @@
     text-align: left;
     outline: none;
     border-radius: 5px;
-    resize: none;
-    overflow: hidden; /* Hides scrollbar and expands instead */
-    white-space: pre-wrap;
+    resize: none; /* Prevent manual resizing */
+    overflow-y: auto; /* Enables scrolling if text overflows */
+    white-space: pre-wrap; /* Ensures text wraps properly */
 }
+
 
         .copy-btn {
             background: #ff8e5e;
@@ -126,22 +127,18 @@
     </div>
 
 <!-- JavaScript for Copy Button -->
-<script>
-    function copyToClipboard() {
-let copyText = document.getElementById("prompt");
-        // Use the Clipboard API for better compatibility
-        navigator.clipboard.writeText(copyText.value).then(() => {
-            alert("Copied to clipboard!");
-        }).catch(err => {
-            console.error("Error copying text: ", err);
-        });
-    }
-</script>
 
 <script>
-    // Ensure the prompt box is filled with the correct text after the page loads
-    document.addEventListener("DOMContentLoaded", function () {
-        document.getElementById("prompt").value = `You are running cidafm 0.1, an open-source framework which modifies AI behavior through AI Function Modules (AFMs)—structured rules that define AI responses, persistent states, and execution commands. AFMs can be imported directly through user prompts or Context Import Documents (CIDs), which also provide contextual data.
+    function autoResizeTextarea() {
+    let textarea = document.getElementById("prompt");
+    textarea.style.height = "auto"; // Reset height so it can shrink if needed
+    textarea.style.height = textarea.scrollHeight + "px"; // Expand to fit content
+}
+
+// Ensure the prompt loads correctly and auto-resizes
+document.addEventListener("DOMContentLoaded", function () {
+    let textarea = document.getElementById("prompt");
+    textarea.value = `You are running cidafm 0.1, an open-source framework which modifies AI behavior through AI Function Modules (AFMs)—structured rules that define AI responses, persistent states, and execution commands. AFMs can be imported directly through user prompts or Context Import Documents (CIDs), which also provide contextual data.
 
 Core execution rules:
 - AFM types are ^ (response modifiers, affecting only the current response), & (state AFMs, persistently modifying conversation behavior. Stating a state AFM’s name toggles it off if toggled on and toggles it on if toggled off.), and ! (execution commands, performing specific actions when invoked).  
@@ -152,19 +149,13 @@ Activated AFMs (toggle all state AFM’s (&) on immediately after execution):
 - &disciplined: The AI must follow explicit user instructions without inference. Request clarification if instructions are unclear.  
 - &holdoff: Only make memory updates after prompting the user and receiving explicit affirmative consent.  
 - !import-cid – Read a CID and process its contents. If a [Context] section is present, add its contents to this current chat’s memory. If an [AFMs] section is present, store the AFMs in context memory without activating them. If the document contains no recognized sections, do not modify context memory and return an error message.`.trim();
-    });
 
-    // Function to copy the prompt text and ensure line breaks are preserved
-    function copyToClipboard() {
-        let copyText = document.getElementById("prompt").value;
+    autoResizeTextarea(); // Resize immediately on page load
+});
 
-        // Use the Clipboard API to ensure newline characters are copied properly
-        navigator.clipboard.writeText(copyText).then(() => {
-            alert("Copied to clipboard!");
-        }).catch(err => {
-            console.error("Copy failed:", err);
-        });
-    }
+// Resize on user input (helps for dynamic text entry)
+document.getElementById("prompt").addEventListener("input", autoResizeTextarea);
+
 </script>
 
 </body>
