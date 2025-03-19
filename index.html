@@ -188,6 +188,16 @@ Activated AFMs (toggle all state AFM’s (&) on immediately after execution):
 // Resize on user input (helps for dynamic text entry)
 document.getElementById("prompt").addEventListener("input", autoResizeTextarea);
 
+    function copyToClipboard() {
+        let copyText = document.getElementById("prompt").value;
+
+        // Use Clipboard API to ensure newline characters are copied properly
+        navigator.clipboard.writeText(copyText).then(() => {
+            alert("Copied to clipboard!");
+        }).catch(err => {
+            console.error("Copy failed:", err);
+        });
+    }
 </script>
 
 </body>
