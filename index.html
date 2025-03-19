@@ -126,22 +126,13 @@
         function copyToClipboard() {
     let copyText = document.getElementById("prompt");
 
-    // Create a temporary textarea to copy text with line breaks
-    let tempTextArea = document.createElement("textarea");
-    tempTextArea.value = copyText.value;
-    
-    // Make it invisible but selectable
-    tempTextArea.style.position = "absolute";
-    tempTextArea.style.left = "-9999px";
-
-    document.body.appendChild(tempTextArea);
-    tempTextArea.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempTextArea);
-
-    alert("Copied to clipboard!");
+    // Use the Clipboard API for better compatibility
+    navigator.clipboard.writeText(copyText.value).then(() => {
+        alert("Copied to clipboard!");
+    }).catch(err => {
+        console.error("Error copying text: ", err);
+    });
 }
-
     </script>
 
     <script>
