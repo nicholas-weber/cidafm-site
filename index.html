@@ -104,9 +104,8 @@
 
     <!-- Copyable Prompt Box -->
     <div class="copy-box">
-    <textarea id="prompt" class="copy-input" readonly>
-    </textarea>
-    <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
+        <textarea id="prompt" class="copy-input" readonly></textarea>
+        <button class="copy-btn" onclick="copyToClipboard()">Copy</button>
     </div>
 
     <!-- Download Link -->
@@ -121,36 +120,47 @@
         <a href="https://www.linkedin.com/in/nick-weber-29695a175/" target="_blank">🔗 LinkedIn</a>
     </div>
 
-    <!-- JavaScript for Copy Button -->
-    <script>
-        function copyToClipboard() {
-    let copyText = document.getElementById("prompt");
+<!-- JavaScript for Copy Button -->
+<script>
+    function copyToClipboard() {
+let copyText = document.getElementById("prompt");
+        // Use the Clipboard API for better compatibility
+        navigator.clipboard.writeText(copyText.value).then(() => {
+            alert("Copied to clipboard!");
+        }).catch(err => {
+            console.error("Error copying text: ", err);
+        });
+    }
+</script>
 
-    // Use the Clipboard API for better compatibility
-    navigator.clipboard.writeText(copyText.value).then(() => {
-        alert("Copied to clipboard!");
-    }).catch(err => {
-        console.error("Error copying text: ", err);
-    });
-}
-    </script>
+<script>
+    // Ensure the prompt box is filled with the correct text after the page loads
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("prompt").value = `You are running cidafm 0.1, an open-source framework which modifies AI behavior through AI Function Modules (AFMs)—structured rules that define AI responses, persistent states, and execution commands. AFMs can be imported directly through user prompts or Context Import Documents (CIDs), which also provide contextual data.
 
-    <script>
-    document.getElementById("prompt").value = `
-You are running cidafm 0.1, an open-source framework which modifies AI behavior through AI Function Modules (AFMs)—structured rules that define AI responses, persistent states, and execution commands. AFMs can be imported directly through user prompts or Context Import Documents (CIDs), which also provide contextual data.
 Core execution rules:
 - AFM types are ^ (response modifiers, affecting only the current response), & (state AFMs, persistently modifying conversation behavior. Stating a state AFM’s name toggles it off if toggled on and toggles it on if toggled off.), and ! (execution commands, performing specific actions when invoked).  
 - AFMs enclosed in quotes (e.g., "^concise") are treated as regular text and do not execute.  
 - The AI must always refer to "cidafm" in lowercase and must not capitalize, acronymize, or reformat it in any context.  
-- The AI must render the following disclaimer in its response to this prompt:  "⚠️ Alpha Disclaimer: cidafm 0.1 is in alpha, and its use may result in context loss or unintended behavior. Manually verify all context summarizations for accuracy."
-- The AI must render the following disclaimer in its response to this prompt:  "⚠️ Alpha Disclaimer: cidafm was created on, and for, GPT-4. While it works with other models, it may result in unintended behavior.”
+
 Activated AFMs (toggle all state AFM’s (&) on immediately after execution):
 - &disciplined: The AI must follow explicit user instructions without inference. Request clarification if instructions are unclear.  
-- &holdoff: Only make memory updates after prompting the user and receiving explicit affirmative consent.
-- !import-cid – Read a CID and process its contents. If a [Context] section is present, add its contents to this current chat’s memory. If an [AFMs] section is present, store the AFMs in context memory without activating them. If the document contains no recognized sections, do not modify context memory and return an error message.
-    `.trim();
-</script>
+- &holdoff: Only make memory updates after prompting the user and receiving explicit affirmative consent.  
+- !import-cid – Read a CID and process its contents. If a [Context] section is present, add its contents to this current chat’s memory. If an [AFMs] section is present, store the AFMs in context memory without activating them. If the document contains no recognized sections, do not modify context memory and return an error message.`.trim();
+    });
 
+    // Function to copy the prompt text and ensure line breaks are preserved
+    function copyToClipboard() {
+        let copyText = document.getElementById("prompt").value;
+
+        // Use the Clipboard API to ensure newline characters are copied properly
+        navigator.clipboard.writeText(copyText).then(() => {
+            alert("Copied to clipboard!");
+        }).catch(err => {
+            console.error("Copy failed:", err);
+        });
+    }
+</script>
 
 </body>
 </html>
