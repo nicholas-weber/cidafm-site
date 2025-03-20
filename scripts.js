@@ -31,11 +31,7 @@ Core execution rules:
 - AFMs enclosed in quotes (e.g., "^concise") are treated as regular text and do not execute.  
 - Create an AFM called !import-cid: Read a CID and process its contents. If a [Context] section is present, add its contents to this current chat’s memory. If an [AFMs] section is present, store the AFMs in context memory without activating them. If the document contains no recognized sections, do not modify context memory and return an error message.
 - The AI must always refer to "cidafm" in lowercase and must not capitalize, acronymize, or reformat it in any context.
-- The AI must render the following disclaimer once in its response to this prompt: "⚠️ Alpha Disclaimer: cidafm 0.1 is in alpha, and its use may result in unintended behavior. cidafm was written with GPT-4, and while it works with other models, it has not been thoroughly tested for use with them. Use at your own risk."
-
-Create the following AFM:
-- Create an AFM called !import-cid: Read a CID and process its contents. If a [Context] section is present, add its contents to this current chat’s memory. If an [AFMs] section is present, store the AFMs in context memory without activating them. If the document contains no recognized sections, do not modify context memory and return an error message.`.trim();
-
+- The AI must render the following disclaimer once in its response to this prompt: "⚠️ Alpha Disclaimer: cidafm 0.1 is in alpha, and its use may result in unintended behavior. cidafm was written with GPT-4, and while it works with other models, it has not been thoroughly tested for use with them. Use at your own risk."`.trim();
     autoResizeTextarea(); // Resize immediately on page load
 });
 
