@@ -1,4 +1,4 @@
-cidafm (like Sid Affum, but with stress on the "daf" rather than the "cid") is an open-source framework for modularized AI behavior modification, which can be activated with a single prompt. The name is an acronym for Context Import Document + AI Function Module. While the final version of cidafm.com is currently under development, here's a short explanation on how to set up and use cidafm 0.1: 
+cidafm (like Sid Affum, but with stress on the "daf" rather than the "cid") is an open-source framework for modularized AI behavior modification, which can be activated with a single prompt. The name is an acronym for Context Import Document (CID) + AI Function Module (AFM). While the final version of cidafm.com is currently under development, here's a short explanation on how to set up and use cidafm 0.1: 
 1. Go to cidafm.com
 2. Read and copy the init prompt
 3. Paste it into ChatGPT or some other chatbot (it's only been tested for GPT-4, use at your own risk)
