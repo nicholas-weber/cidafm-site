@@ -7,7 +7,7 @@ cidafm (like Sid Affum, but with stress on the "daf" rather than the "cid") is a
 6. Ask the AI how it would improve cidafm, or how it would improve a specific AFM (optional)
 
 The three types of AFMs:
-- Response modifiers (prefixed with ^) only modify the response to the prompt the response modifier is used in (i.e. ^concise)
+- Response modifiers (prefixed with ^): only modify the response to the prompt the response modifier is used in (i.e. ^concise)
 - State AFMs (prefixed with &): modify all the AI's responses while toggled on, but can be toggled off by repeating the name of the AFM in a prompt (i.e. &concise)
 - Execution commands (prefixed with !): perform a single command once (i.e. !state-check)
 
