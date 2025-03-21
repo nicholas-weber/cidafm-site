@@ -1,4 +1,4 @@
-cidafm (like Sid Affum, but with the stress on the "daf" rather than the "cid") is an open-source framework for modularized AI behavior modification, which can be activated with a single prompt. No code or coding necessary! While the final version of cidafm.com is currently under development, here's a short explanation on how to set up and use cidafm: 
+cidafm (like Sid Affum, but with the stress on the "daf" rather than the "cid") is an open-source framework for modularized AI behavior modification, which can be activated with a single prompt. No code or coding necessary. While the final version of cidafm.com is currently under development, here's a short explanation on how to set up and use cidafm: 
 1. Go to cidafm.com
 2. Copy the init prompt
 3. Paste it into ChatGPT or some other chatbot (it's only been tested for GPT-4, use at your own risk)
