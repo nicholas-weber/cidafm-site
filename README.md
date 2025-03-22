@@ -3,7 +3,7 @@
 cidafm (pronounced like Sid Affum, but with stress on the "daf" rather than the "cid") is an open-source framework for modularized AI behavior modification. cidafm is unique in that it requires no code to run; it is simply activated using the init prompt, available on cidafm.com. The framework enables the use of AFMs (AI function modules), or snippets of reusable execution logic. AFMs can either be imported through CIDs (context import documents) or defined directly by the user via prompting.
 
 The three types of AFMs:
-- Response modifiers (prefixed with ^): only modify the response to the prompt the response modifier is used in (i.e. ^concise)
+- Response modifiers (prefixed with ^): only modify the response once, when used within the prompt you want to modify (i.e. ^concise)
 - State AFMs (prefixed with &): modify all the AI's responses while toggled on, but can be toggled off by repeating the name of the AFM in a prompt (i.e. &concise)
 - Execution commands (prefixed with !): perform a single command once (i.e. !state-check)
 
