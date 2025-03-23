@@ -7,9 +7,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function typeNextChar() {
       if (index < text.length) {
-        header.textContent += text.charAt(index);
+        header.innerHTML += text.charAt(index);
         index++;
         setTimeout(typeNextChar, 50);
+      } else {
+        const sub = document.getElementById("cidafm-subheader");
+        if (sub) {
+          sub.classList.add("fade-in");
+          sub.style.opacity = 1;
+        }
       }
     }
 
@@ -18,11 +24,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const totalTypingTime = text.length * 150 + 150;
 
-      if (tagline) {
-        setTimeout(() => {
-          tagline.style.opacity = 1;
-        }, totalTypingTime);
-      }
 
       if (content) {
         setTimeout(() => {
