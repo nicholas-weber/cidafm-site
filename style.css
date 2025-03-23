@@ -54,12 +54,6 @@ h3 + p {
     margin-top: 0.5rem;
 }
 
-#tagline {
-    opacity: 1;
-    transition: opacity 1s ease-in-out;
-    margin: 0 0 .5rem 0;
-}
-
 .subheader {
     font-size: 1rem;
     font-weight: 500;
@@ -73,12 +67,6 @@ h3 + p {
     position: relative;
     width: 100%;
     max-width: 800px;
-}
-
-.prompt-box h2.subheader {
-    /* Added styles for the subheader */
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
 }
 
 .prompt-box textarea {

@@ -1,6 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
     const header = document.getElementById("cidafm-header");
-    const tagline = document.getElementById("tagline");
     const content = document.getElementById("content-container");
     const text = "cidafm";
     let index = 0;
@@ -22,13 +21,10 @@ window.addEventListener("DOMContentLoaded", () => {
     if (header) {
       setTimeout(typeNextChar, 500);
 
-      const totalTypingTime = text.length * 150 + 150;
-
-
       if (content) {
         setTimeout(() => {
           content.style.opacity = 1;
-        }, totalTypingTime + 150);
+        }, text.length * 150 + 150 + 150);
       }
     }
 
