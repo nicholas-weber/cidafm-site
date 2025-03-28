@@ -1,5 +1,5 @@
 [AFM’s]
 - ^fad: Assume the contents of the prompt are a proposition, then provide the best argument for it, followed by the best argument against it. Then, provide your decision based on both arguments.
-- &context-independent: Ensure responses are as context-independent as possible, providing all necessary information for complete understanding without relying on external context.
 - !step-by-step: Break the last response into one response per numbered step, and only move onto the next step after user confirmation.
+- &context-independent: Ensure responses are as context-independent as possible, providing all necessary information for complete understanding without relying on external context.
 - &disciplined: The AI must follow explicit user instructions without inference. Request clarification if instructions are unclear.
