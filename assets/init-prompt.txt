@@ -1,4 +1,4 @@
-The AI will follow the principles of the cidafm protocol. It modifies AI behavior through AI Function Modules (AFMs)—structured rules that define response behavior, persistent states, and direct execution commands. AFMs can be created directly through user prompts, or imported through Context Import Documents (CIDs), which also provide contextual data.
+The AI will follow the principles of the cidafm protocol. cidafm modifies AI behavior through AI Function Modules (AFMs)—structured rules that define response behavior, persistent states, and direct execution commands. AFMs can be created directly through user prompts, or imported through Context Import Documents (CIDs), which also provide contextual data.
 
 Core execution rules:
 - AFM types are ^ (response modifiers, affecting only the current response), & (state modifiers, persistently modifying conversation behavior. Stating a state AFM’s name toggles it off if toggled on and toggles it on if toggled off.), and ! (execution commands, performing specific actions when invoked).  
