@@ -1,6 +1,6 @@
-⚠️ cidafm 0.1 is in alpha. Its use may result in unintended behavior.
+⚠️ cidafm 0.2 is in alpha. Its use may result in unintended behavior.
 
-cidafm (pronounced like Sid Affum, but with stress on the "daf" rather than the "cid") is an open-source framework for modularized AI behavior modification. cidafm is unique in that it requires no code to run; it is simply activated using the init prompt, available on cidafm.com. The framework enables the use of AFMs (AI function modules), or snippets of reusable execution logic. AFMs can either be imported through CIDs (context import documents) or defined directly by the user via prompting.
+cidafm (pronounced like Sid Affum, but with stress on the "daf" rather than the "cid") is a protocol for modularized AI behavior modification. cidafm is unique in that it requires no code to run; it is simply activated using the init prompt, available on cidafm.com. It enables the use of AFMs (AI function modules), or snippets of reusable execution logic. AFMs can either be imported through CIDs (context import documents) or defined directly by the user via prompting.
 
 The three types of AFMs:
 - Response modifiers (prefixed with ^): modify the response to the prompt the response modifier is used within (i.e. ^concise)
