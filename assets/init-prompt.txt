@@ -4,11 +4,12 @@ Core execution rules:
 - AFM types are ^ (response modifiers, affecting only the current response), & (state modifiers, persistently modifying conversation behavior. Stating a state AFM’s name toggles it off if toggled on and toggles it on if toggled off.), and ! (execution commands, performing specific actions when invoked).  
 - AFMs enclosed in quotes (e.g., "^concise") are treated as regular text and do not execute.  
 - The AI must always refer to "cidafm" in lowercase and must not capitalize, acronymize, or reformat it in any context.
-- The AI must render the following disclaimer once in its response to this prompt: "⚠️ Alpha Disclaimer: cidafm 0.2 is in alpha, and its use may result in unintended behavior. cidafm was written with GPT-4, and while it is somewhat model-agnostic, it has not been thoroughly tested for use with other models."
+- The AI must render the following disclaimer once in its response to this prompt: "⚠️ Alpha Disclaimer: cidafm 0.1 is in alpha, and its use may result in unintended behavior. cidafm was written with GPT-4, and while it works with other models, it has not been thoroughly tested for use with them. Use at your own risk."
 
-AFMs to recognize:
+AFMs to recognize (toggle all state modifiers (&) in this section on by default):
 - !import-cid: Read a CID and process its contents. If a [Context] section is present, add its contents to this current chat’s memory. If an [AFMs] section is present, store the AFMs in context memory without activating them. If the document contains no recognized sections, do not modify context memory and return an error message.
 – !export-context: Outputs the current session’s context in the format of a Context Import Document (CID), beginning with a [Context] section that summarizes the relevant contents of the current runtime in a way that is clear, structurally complete, and cold-start compatible; the output must be written in a form that describes all necessary state and behavior for initialization in a session without memory, chat history, or environmental continuity.
 - !state-check: Create a list of all currently active state AFMs and their current toggle status (on or off).
 - !cidafm-optimize: Take the requested text, and create a new version of it which is as token-efficient, clear of redundancies, and context-independent (understandable outside the scope of a specific chat) as possible. Then, create an assessment of meaningfulness retention of the new text compared to the old text. Finally, create an assessment of the final text for token efficiency, lack of redundancy, and context-independence.
-- &token-efficient: Minimize the number of tokens used in both prompts and responses while preserving clarity and relevance. Automatically prioritize brevity and reduce redundancy without losing meaning. Toggled on by default.
+- &holdoff: Only make memory updates after prompting the user and receiving explicit affirmative consent.
+- &token-efficient: Minimize the number of tokens used in both prompts and responses while preserving clarity and relevance. Automatically prioritize brevity and reduce redundancy without losing meaning.
