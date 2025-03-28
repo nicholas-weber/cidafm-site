@@ -10,8 +10,8 @@ The three types of AFMs:
 How to use: 
 1. Go to cidafm.com
 2. Read and copy the init prompt
-3. Paste it into ChatGPT or any other chatbot (it's only been tested for GPT-4, use at your own risk)
+3. Paste it into ChatGPT or any other chatbot (it's only been thoroughly tested for GPT-4)
 4. Download the AFM library, then import it into the chat along with "!import-cid" somewhere in the prompt (not in quotes)
 5. Try out the AFMs
-6. Try to develop your own AFMs. An example could be to define a state AFM which makes the AI talk like a famous person or character. Try it, then try toggling it on and off. If you imported the library, then try a "!state-check"
+6. Try to develop your own AFMs. An example could be to define a state AFM which makes the AI talk like a famous person or character. Try it, then try toggling it on and off. Try a "!state-check"
 7. Ask the AI how it would improve cidafm, or how it would improve a specific AFM
